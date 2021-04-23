@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@storeon/localstorage": "^1.4.0",
     "lint-staged": "^10.4.2",
     "node-sass": "^4.14.1",
     "normalize-scss": "^7.0.1",
