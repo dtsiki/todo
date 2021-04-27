@@ -12,17 +12,14 @@ const defaultTodos = [
   },
 ];
 
-const DEFAULT_TODO_ID = 0;
-
 const todos = (store) => {
-  store.on('@init', () => ({ id: DEFAULT_TODO_ID, todos: defaultTodos }));
+  store.on('@init', () => ({ todos: defaultTodos }));
 
-  store.on('todos/addNewTodo', ({ todos, id }, newTodo) => {
+  store.on('todos/addNewTodo', ({ todos }, newTodo) => {
     return {
-      id: id + 1,
       todos: todos.concat([
         {
-          id: id,
+          id: Date.now(),
           title: newTodo,
           isCompleted: false,
         },
@@ -31,8 +28,18 @@ const todos = (store) => {
   });
 
   store.on('todos/deleteTodo', ({ todos }, todoId) => {
-    var updatedTodos = todos.filter((todo) => {
+    const updatedTodos = todos.filter((todo) => {
       return todo.id !== todoId;
+    });
+    return {
+      todos: updatedTodos,
+    };
+  });
+
+  store.on('todos/completeTodo', ({ todos }, todoId) => {
+    const updatedTodos = todos.filter((todo) => {
+      if (todo.id === todoId) todo.isCompleted = !todo.isCompleted;
+      return todo;
     });
     return {
       todos: updatedTodos,
@@ -41,7 +48,6 @@ const todos = (store) => {
 
   store.on('todos/deleteAllTodos', () => {
     return {
-      id: DEFAULT_TODO_ID,
       todos: [],
     };
   });
