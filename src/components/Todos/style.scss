@@ -1,0 +1,75 @@
+/* stylelint-disable declaration-no-important */
+@import './../../styles/utils/breakpoints';
+@import './../../styles/base/colors';
+
+.todos {
+  margin: 0 auto;
+  width: 90%;
+
+  @include md {
+    max-width: 500px;
+  }
+}
+
+.todo {
+  position: relative;
+  padding: 30px 25px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 24px;
+  background-color: $color--white;
+  border: 1px solid $color--white-violet;
+  border-radius: 10px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .05);
+
+  &:hover,
+  &:focus {
+    border: 1px solid $color--violet;
+  }
+
+  &__title {
+    margin-right: 40px;
+    margin-left: 20px;
+    text-align: left;
+
+    &--completed {
+      text-decoration: line-through;
+    }
+  }
+
+  &__checkbox {
+    margin-top: 2px;
+  }
+
+  &__delete-button {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+
+    svg {
+      width: 20px !important;
+      height: 20px !important;
+      color: $color--white-violet;
+    }
+  }
+
+  &--completed {
+    border-color: $color--violet-darker;
+  }
+
+  + .todo {
+    margin-top: 15px;
+  }
+
+  @include lg {
+    font-size: 18px;
+  }
+}
