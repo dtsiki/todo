@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Main from './pages/Main';
+import Todo from './pages/Todo';
 
 const App = () => {
-  return <Main />;
+  return <Todo />;
 };
 
 export default App;
