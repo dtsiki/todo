@@ -1,0 +1,41 @@
+@import './../../styles/utils/mixins';
+@import './../../styles/base/colors';
+
+.filter {
+  display: inline-flex;
+  width: auto;
+  justify-content: space-around;
+  align-items: center;
+
+  &-button {
+    margin: 0 10px;
+    padding: 15px 25px;
+    min-width: 150px;
+    color: $color--violet;
+    background-color: $color--white-darker;
+    border: 0;
+    border-radius: 30px;
+    transition: .5s;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background-color: $color--white-violet;
+    }
+
+    &--selected {
+      font-weight: bold;
+      color: $color--white-darker;
+      background-color: $color--violet;
+
+      &:hover,
+      &:focus {
+        background-color: $color--violet-darker;
+      }
+    }
+
+    + .filter-button {
+      margin-left: 10px;
+    }
+  }
+}
