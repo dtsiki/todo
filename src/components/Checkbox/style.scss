@@ -1,0 +1,9 @@
+@import './../../styles/utils/mixins';
+
+.checkbox {
+  &__label {
+    &--hidden {
+      @include visually-hidden;
+    }
+  }
+}

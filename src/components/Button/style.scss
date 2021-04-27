@@ -1,0 +1,11 @@
+@import './../../styles/utils/mixins';
+
+.button {
+  &__label {
+    @include visually-hidden;
+  }
+
+  &__icon {
+    display: inline-block;
+  }
+}
