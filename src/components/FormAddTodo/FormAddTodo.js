@@ -36,7 +36,7 @@ const FormAddTodo = () => {
         label="Add new to do"
       />
       <Button
-        buttonClassName="add-button"
+        buttonClassName="form-add-todo__button"
         isValueVisuallyHidden={true}
         icon={<FontAwesomeIcon icon={faPlus} />}
         value="Add"
