@@ -1,5 +1,6 @@
 @import './../../../styles/base/colors';
 @import './../../../styles/utils/mixins';
+@import './../../../styles/utils/breakpoints';
 
 .input {
   position: relative;
@@ -8,11 +9,16 @@
   &__field {
     padding: 25px 30px;
     width: 100%;
+    font-size: 22px;
     font-weight: normal;
     color: $color--violet;
     background-color: $color--white;
     border: solid 1px $color--violet;
     border-radius: 10px;
+
+    @include md {
+      font-size: 18px;
+    }
 
     &:focus {
       border-color: $color--violet-darker;
@@ -21,7 +27,12 @@
 
     &::placeholder {
       opacity: 1;
+      font-size: 22px;
       color: $color--violet;
+
+      @include md {
+        font-size: 18px;
+      }
     }
   }
 

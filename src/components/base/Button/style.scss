@@ -112,12 +112,21 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     background-color: $color--violet;
 
+    @include md {
+      width: 50px;
+      height: 50px;
+    }
+
     svg {
-      @include set-svg(20px, $color--white-darker);
+      @include set-svg(40px, $color--white-darker);
+
+      @include md {
+        @include set-svg(20px, $color--white-darker);
+      }
     }
   }
 }
