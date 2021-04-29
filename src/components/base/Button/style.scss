@@ -1,0 +1,85 @@
+@import './../../../styles/utils/mixins';
+@import './../../../styles/base/colors';
+
+.button {
+  position: relative;
+
+  &__label {
+    @include visually-hidden;
+  }
+
+  &__icon {
+    display: inline-block;
+  }
+
+  &__tooltip {
+    position: absolute;
+    right: -215px;
+    padding: 15px 10px;
+    display: flex;
+    min-width: 200px;
+    justify-content: center;
+    align-items: center;
+    color: $color--white;
+    background-color: $color--violet;
+    border-radius: 5px;
+
+    &::before {
+      position: absolute;
+      left: -10px;
+      display: block;
+      width: 0;
+      height: 0;
+      content: '';
+      border-width: 10px 10px 10px 0;
+      border-style: solid;
+      border-color: transparent $color--violet transparent transparent;
+    }
+  }
+
+  &--open,
+  &--close,
+  &--delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+
+  &--open {
+    margin: 0 0 20px;
+    width: 50px;
+    height: 50px;
+    background-color: $color--violet;
+
+    svg {
+      @include set-svg(20px, $color--white-darker);
+    }
+  }
+
+  &--delete {
+    margin: 20px 0 0;
+    width: 50px;
+    height: 50px;
+    background-color: $color--violet;
+
+    svg {
+      @include set-svg(20px, $color--white-darker);
+    }
+  }
+
+  &--close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: $color--violet;
+
+    svg {
+      @include set-svg(20px, $color--white-darker);
+    }
+  }
+}

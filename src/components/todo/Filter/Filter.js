@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 
-import { filterTypes } from './../../constants/filterTypes';
+import { filterTypes } from '../../../constants/filterTypes';
 
 import './style.scss';
 
@@ -20,14 +20,14 @@ const Filter = ({ selectedFilter, changeFilter }) => {
         </li>
       );
     });
-  }, [selectedFilter]);
+  }, [selectedFilter, changeFilter]);
 
   return <ul className="filter">{renderFilter}</ul>;
 };
 
 Filter.propTypes = {
   changeFilter: PropTypes.func,
-  selectedFilter: PropTypes.string,
+  selectedFilter: PropTypes.object,
 };
 
 export default Filter;

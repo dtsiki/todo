@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useStoreon } from 'storeon/react';
 
-import Button from './../Button';
-import Checkbox from './../Checkbox';
+import Button from './../../base/Button';
+import Checkbox from './../../base/Checkbox';
 
 const Todo = ({ todo }) => {
   const { dispatch } = useStoreon('todos');
