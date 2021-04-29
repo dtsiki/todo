@@ -1,11 +1,11 @@
 import { faStickyNote } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useStoreon } from 'storeon/react';
 
+import useOnClickOutside from './../../../hooks/useOnClickOutside';
 import Button from './../../base/Button';
-import Form from './../../base/Form';
 import Input from './../../base/Input';
 
 import './style.scss';
@@ -13,6 +13,8 @@ import './style.scss';
 const FormAddTodo = ({ closeForm }) => {
   const { dispatch } = useStoreon();
   const [newTodo, setNewTodo] = useState('');
+  const ref = useRef();
+  useOnClickOutside(ref, () => closeForm());
 
   const addNewTodo = (e) => {
     e.preventDefault();
@@ -27,7 +29,7 @@ const FormAddTodo = ({ closeForm }) => {
   };
 
   return (
-    <Form onSubmit={addNewTodo} formClassName="form-add-todo">
+    <form onSubmit={addNewTodo} className="form-add-todo" ref={ref}>
       <Input
         value={newTodo}
         onChange={changeNewTodo}
@@ -41,7 +43,7 @@ const FormAddTodo = ({ closeForm }) => {
         isLabelVisuallyHidden
       />
       <Button buttonClassName="form-add-todo__button" value="Add new to do" onClick={addNewTodo} type="submit" />
-    </Form>
+    </form>
   );
 };
 
