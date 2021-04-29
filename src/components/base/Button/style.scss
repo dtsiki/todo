@@ -1,5 +1,6 @@
 @import './../../../styles/utils/mixins';
 @import './../../../styles/base/colors';
+@import './../../../styles/utils/breakpoints';
 
 .button {
   position: relative;
@@ -14,26 +15,43 @@
 
   &__tooltip {
     position: absolute;
-    right: -215px;
+    bottom: -70px;
     padding: 15px 10px;
     display: flex;
-    min-width: 200px;
+    min-width: 300px;
     justify-content: center;
     align-items: center;
+    font-size: 20px;
     color: $color--white;
-    background-color: $color--violet;
+    background-color: $color--violet-darker;
     border-radius: 5px;
 
     &::before {
       position: absolute;
-      left: -10px;
+      top: -10px;
       display: block;
       width: 0;
       height: 0;
       content: '';
-      border-width: 10px 10px 10px 0;
+      border-width: 0 10px 10px;
       border-style: solid;
-      border-color: transparent $color--violet transparent transparent;
+      border-color: transparent transparent $color--violet-darker transparent;
+
+      @include md {
+        top: auto;
+        left: -10px;
+        border-width: 10px 10px 10px 0;
+        border-style: solid;
+        border-color: transparent $color--violet-darker transparent transparent;
+      }
+    }
+
+    @include md {
+      top: auto;
+      right: -215px;
+      bottom: auto;
+      min-width: 200px;
+      font-size: 16px;
     }
   }
 
@@ -49,24 +67,44 @@
   }
 
   &--open {
-    margin: 0 0 20px;
-    width: 50px;
-    height: 50px;
+    margin: 0 0 40px;
+    width: 100px;
+    height: 100px;
     background-color: $color--violet;
 
     svg {
-      @include set-svg(20px, $color--white-darker);
+      @include set-svg(40px, $color--white-darker);
+
+      @include md {
+        @include set-svg(20px, $color--white-darker);
+      }
+    }
+
+    @include md {
+      margin: 0 0 20px;
+      width: 50px;
+      height: 50px;
     }
   }
 
   &--delete {
-    margin: 20px 0 0;
-    width: 50px;
-    height: 50px;
+    margin: 40px 0 0;
+    width: 100px;
+    height: 100px;
     background-color: $color--violet;
 
     svg {
-      @include set-svg(20px, $color--white-darker);
+      @include set-svg(40px, $color--white-darker);
+
+      @include md {
+        @include set-svg(20px, $color--white-darker);
+      }
+    }
+
+    @include md {
+      margin: 20px 0 0;
+      width: 50px;
+      height: 50px;
     }
   }
 
