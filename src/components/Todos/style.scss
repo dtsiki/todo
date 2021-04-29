@@ -1,6 +1,7 @@
 /* stylelint-disable declaration-no-important */
 @import './../../styles/utils/breakpoints';
 @import './../../styles/base/colors';
+@import './../../styles/utils/mixins';
 
 .todos {
   margin: 0 auto;
@@ -38,10 +39,6 @@
     }
   }
 
-  &__checkbox {
-    margin-top: 2px;
-  }
-
   &__delete-button {
     position: absolute;
     right: 20px;
@@ -55,9 +52,7 @@
     cursor: pointer;
 
     svg {
-      width: 20px !important;
-      height: 20px !important;
-      color: $color--white-violet;
+      @include set-svg(20px, $color--white-violet);
     }
   }
 

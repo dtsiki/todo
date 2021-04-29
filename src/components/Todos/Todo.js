@@ -1,4 +1,4 @@
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -25,12 +25,13 @@ const Todo = ({ todo }) => {
         name={todo.id}
         value={todo.isCompleted}
         onChange={() => completeTodo(todo.id)}
+        label={todo.title}
+        labelClassName={`todo__title${todo.isCompleted ? ' todo__title--completed' : ''}`}
       />
-      <span className={`todo__title${todo.isCompleted ? ' todo__title--completed' : ''}`}>{todo.title}</span>
       <Button
         buttonClassName="todo__delete-button"
         isValueVisuallyHidden={true}
-        icon={<FontAwesomeIcon icon={faTrash} />}
+        icon={<FontAwesomeIcon icon={faTimes} />}
         value="Delete"
         onClick={() => deleteTodo(todo.id)}
       />

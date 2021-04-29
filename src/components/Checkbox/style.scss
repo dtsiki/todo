@@ -1,9 +1,58 @@
+@import './../../styles/base/colors';
 @import './../../styles/utils/mixins';
 
 .checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+
   &__label {
-    &--hidden {
-      @include visually-hidden;
+    position: relative;
+    padding-left: 20px;
+
+    &::before,
+    &::after {
+      position: absolute;
+      left: -20px;
+      display: block;
+      content: '';
+      border-radius: 100%;
+      box-shadow: none;
+      cursor: pointer;
+    }
+
+    &::before {
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+      border: 1px solid $color--violet;
+    }
+
+    &::after {
+      top: 0;
+      margin: 5px;
+      width: 10px;
+      height: 10px;
+      background-color: transparent;
+      border: 1px solid transparent;
+    }
+  }
+
+  &__input {
+    position: absolute;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    border: 0;
+
+    &:checked {
+      + .checkbox__label {
+        &::after {
+          background-color: $color--violet;
+        }
+      }
     }
   }
 }

@@ -3,11 +3,19 @@ import React from 'react';
 
 import './style.scss';
 
-const Checkbox = ({ checkboxClassName, name, label, value, onChange, isLabelVisuallyHidden = true }) => {
+const Checkbox = ({ checkboxClassName, name, label, labelClassName, value, onChange }) => {
   return (
-    <div className={`checkbox ${checkboxClassName ? ` ${checkboxClassName}` : ''}`}>
-      <input type="checkbox" name={name} className="checkbox__input" checked={value} onChange={onChange} />
-      <label className={`checkbox__label${isLabelVisuallyHidden ? 'checkbox__label--hidden' : ''}`} htmlFor={name}>
+    <div className={`checkbox${checkboxClassName ? ` ${checkboxClassName}` : ''}`}>
+      <input
+        onChange={onChange}
+        className={`checkbox__input`}
+        id={name}
+        name={name}
+        type="checkbox"
+        value={value}
+        checked={value}
+      />
+      <label className={`checkbox__label${labelClassName ? ` ${labelClassName}` : ''}`} htmlFor={name}>
         {label}
       </label>
     </div>
@@ -15,11 +23,11 @@ const Checkbox = ({ checkboxClassName, name, label, value, onChange, isLabelVisu
 };
 
 Checkbox.propTypes = {
-  name: PropTypes.string,
+  name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string,
   onChange: PropTypes.func,
   value: PropTypes.any,
-  isLabelVisuallyHidden: PropTypes.bool,
+  labelClassName: PropTypes.string,
   checkboxClassName: PropTypes.string,
 };
 
