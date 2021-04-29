@@ -6,14 +6,17 @@ import Todo from './Todo';
 
 import './style.scss';
 
-const Todos = ({ todos, selectedFilter = 'all' }) => {
+const Todos = ({ todos, selectedFilter = filterTypes[0] }) => {
   const todosItems = useMemo(() => {
     if (!todos?.length) return <li>Your to do list is empty :(</li>;
-    return todos.map((todo) => {
-      if (selectedFilter === filterTypes[0]) return <Todo todo={todo} key={todo.id} />;
-      if (selectedFilter === filterTypes[2] && todo.isCompleted) return <Todo todo={todo} key={todo.id} />;
-      if (selectedFilter === filterTypes[1] && !todo.isCompleted) return <Todo todo={todo} key={todo.id} />;
-    });
+    return todos
+      .filter((todo) => {
+        if (selectedFilter.isCompleted !== null) {
+          return todo.isCompleted === selectedFilter.isCompleted;
+        }
+        return todo;
+      })
+      .map((todo) => <Todo todo={todo} key={todo.id} />);
   }, [todos, selectedFilter]);
 
   return <ul className="todos">{todosItems}</ul>;

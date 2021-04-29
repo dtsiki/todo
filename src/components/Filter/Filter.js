@@ -10,12 +10,12 @@ const Filter = ({ selectedFilter, changeFilter }) => {
     if (!filterTypes) return;
     return filterTypes.map((filterType) => {
       return (
-        <li key={filterType} className="filter__item">
+        <li key={filterType.name} className="filter__item">
           <button
-            className={`filter-button${selectedFilter === filterType ? ' filter-button--selected' : ''}`}
+            className={`filter-button${selectedFilter.name === filterType.name ? ' filter-button--selected' : ''}`}
             onClick={() => changeFilter(filterType)}
           >
-            {filterType}
+            {filterType.name}
           </button>
         </li>
       );
