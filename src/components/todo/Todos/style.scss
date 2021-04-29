@@ -64,7 +64,26 @@
     margin-top: 15px;
   }
 
-  @include lg {
+  @include md {
     font-size: 18px;
+  }
+
+  &-message {
+    padding: 30px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+
+    svg {
+      margin-top: 2px;
+      margin-left: 10px;
+
+      @include set-svg(30px, $color--violet);
+    }
+
+    @include md {
+      font-size: 18px;
+    }
   }
 }

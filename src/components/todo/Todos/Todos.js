@@ -1,3 +1,5 @@
+import { faSadTear } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 
@@ -8,7 +10,12 @@ import './style.scss';
 
 const Todos = ({ todos, selectedFilter = filterTypes[0] }) => {
   const todosItems = useMemo(() => {
-    if (!todos?.length) return <li>Your to do list is empty :(</li>;
+    if (!todos?.length)
+      return (
+        <li className="todo-message">
+          Your to do list is empty <FontAwesomeIcon icon={faSadTear} />
+        </li>
+      );
     return todos
       .filter((todo) => {
         if (selectedFilter.isCompleted !== null) {
