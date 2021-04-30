@@ -1,6 +1,6 @@
 # To Do
 ### Overview
-Simple to do app built with the ReactJS. Redux-like manager Storeon and its localStorage module are used for state management. There you can also find my previous to do implementation that I created a year ago as a trainee frontend developer.
+Simple to do app built with the ReactJS. Redux-like manager Storeon and its localStorage module are used for state management. There you can also find [my previous](https://github.com/dtsiki/todos) to do implementation that I created a year ago as a trainee frontend developer.
 
 ![alt text](https://github.com/dtsiki/todo/blob/main/previews/to-do-main-screen.png "to do main screen")
 
